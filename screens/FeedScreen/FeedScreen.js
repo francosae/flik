@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { HStack, VStack, Button, Text, ScrollView } from "native-base";
+import { HStack, VStack, Button, Text, ScrollView, Stack } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import FeedCard from "../../Components/FeedCard";
 
@@ -19,7 +19,7 @@ export default function FeedScreen() {
 
 function Header() {
   return (
-    <VStack space={1} alignItems="center">
+    <Stack direction="column" space={1} alignItems="center">
       <Text
         fontWeight={"700"}
         style={{
@@ -30,7 +30,7 @@ function Header() {
       >
         Flik.
       </Text>
-      <HStack space={4}>
+      <HStack width={"353px"} justifyContent={"space-between"}>
         <Button
           size={"lg"}
           style={{
@@ -47,7 +47,7 @@ function Header() {
           Circle Name
         </Button>
       </HStack>
-      <HStack>
+      <HStack height={"38px"} width={"353px"} justifyContent={"space-between"}>
         <Button
           variant="unstyled"
           endIcon={<AntDesign name="down" size={24} color="black" />}
@@ -61,6 +61,6 @@ function Header() {
           10:30:00
         </Text>
       </HStack>
-    </VStack>
+    </Stack>
   );
 }
