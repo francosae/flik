@@ -7,7 +7,7 @@ import {
   ProfileScreen,
   CameraScreen,
   RegisterScreen,
-  LoginScreen,
+  LoginScreen
 } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
