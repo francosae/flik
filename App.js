@@ -3,8 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen} from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
-
-const Stack = createNativeStackNavigator();
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -23,7 +21,7 @@ export default function App() {
       <AppContainer />
     </NativeBaseProvider>
   );
-  }
+}
 
 const Tab = createBottomTabNavigator();
 
@@ -40,5 +38,5 @@ function AppContainer(){
         <Tab.Screen name="Camera" component={CameraScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-  )
+  );
 }
