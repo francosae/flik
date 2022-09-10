@@ -1,7 +1,8 @@
-import { View, Text, Image, StyleSheet  } from 'react-native'
+import { View, Image, StyleSheet  } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Heading, HStack, Input, VStack } from 'native-base'
+import { Heading, HStack, Input, VStack, Text, Box, Avatar, Center, AlertDialog, Button} from 'native-base'
+import { AntDesign } from '@expo/vector-icons';
 
 const testData = [
     {
@@ -22,32 +23,88 @@ const testData = [
     }
 ]
 
+const testCircle = [
+    {
+        circleName: 'Julia Sherman',
+    },
+    {
+        name: 'Miss Lady',
+    },
+    {
+        name: 'Mark Keeper',
+    },
+    {
+        name: 'Person McPerson',
+    }
+]
+
+
 export default function FriendScreen() {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const onClose = () => setIsOpen(false);
+  
+    const cancelRef = React.useRef(null);
+
+    const removeFriend = (index) => {
+        testData.splice(index , 1)
+    }
+    
   return (
     <SafeAreaView>
+    <Center maxW='80%' w='80%' alignSelf='center'>
+     <Center alignItems='center' alignSelf='center'>
       <VStack space={4} alignItems="center">
-        <Text fontSize="xl">Your friends</Text>
-        <Input maxW="80%" size="md" placeholder="Search your friends" />
+        <Text fontSize="lg">Your friends</Text>
+        <Input size="sm" placeholder="Search your friends" />
       </VStack>
-
-      <VStack maxW="80%" alignItems="left">
+     </Center>
+    
+      <Center mt={2} alignItems='left' alignSelf='left'>
         <Text bold fontSize="md">MY FRIENDS</Text>
-      </VStack>
+      </Center>
 
-      <VStack space={4} alignItems="center">
+      <VStack mt={2} space={4} alignItems="left" w='100%' alignSelf='left'>
         {testData.map((data, index) => {
             return (
-                <HStack alignItems="center" key={index}>
-                <VStack space={1} alignItems="center">
+                <HStack key={index} justifyContent="space-between" >
+                <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
+                uri: 'https://placeimg.com/80/80/people'
+                }} />
+                <VStack space={1} alignItems="left">
                     <Text fontSize='md'>{data.name}</Text>
                     <Text fontSize='md'>{data.at}</Text>
                 </VStack>
-                <Image style={styles.profPic} source={{uri: 'https://placeimg.com/80/80/people'}} />
+                <HStack alignSelf='right'>
+                <AntDesign name="close" size={24} color="black" onPress={() => setIsOpen(!isOpen)} />
+                </HStack>
+
+
+                <AlertDialog leastDestructiveRef={cancelRef} isOpen={isOpen} onClose={onClose}>
+                <AlertDialog.Content>
+                <AlertDialog.CloseButton />
+                <AlertDialog.Header>Remove Friend</AlertDialog.Header>
+                <AlertDialog.Body>
+                    <Text>Are you sure you want to remove {data.name}?</Text>
+                </AlertDialog.Body>
+                <AlertDialog.Footer>
+                    <Button.Group space={2}>
+                    <Button variant="unstyled" colorScheme="coolGray" onPress={onClose} ref={cancelRef}>
+                        Cancel
+                    </Button>
+                    <Button colorScheme="danger" onPress={() => {onClose, removeFriend(index)} }>
+                        Confirm
+                    </Button>
+                    </Button.Group>
+                </AlertDialog.Footer>
+                </AlertDialog.Content>
+                </AlertDialog>
                 </HStack>
             )
         })}
-      </VStack  >
+      </VStack>
 
+    </Center>
     </SafeAreaView>
   )
 }
