@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { HStack, VStack, Button, Text, ScrollView, Stack } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
-import FeedCard from "../../Components/FeedCard"
+import FeedCard from "../../Components/FeedCard";
 import { useState } from "react";
 
 export default function FeedScreen() {
