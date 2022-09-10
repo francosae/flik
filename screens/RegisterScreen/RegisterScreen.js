@@ -42,7 +42,6 @@ export default function RegisterScreen() {
         />
         <Button title="register" onPress={Register}></Button>
       </View>
-      <View></View>
     </View>
   );
 }
