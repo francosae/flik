@@ -1,7 +1,7 @@
-import { StatusBar } from "expo-status-bar";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { TextInput, Button, StyleSheet, Text, View } from "react-native";
 import firebase from "firebase";
+import { useState } from "react";
 
 export class Register extends Component() {
   constructor(props) {
