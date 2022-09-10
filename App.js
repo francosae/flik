@@ -9,11 +9,9 @@ import {
 } from "./screens";
 const Stack = createNativeStackNavigator();
 
-import { theme } from "./theme";
-
 export default function App() {
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider>
       <AppContainer />
     </NativeBaseProvider>
   );
