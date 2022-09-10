@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet  } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Heading, HStack, Input, VStack, Text, Box, Avatar, Center, AlertDialog, Button} from 'native-base'
+import { Heading, HStack, Input, VStack, Text, Box, Avatar, Center, AlertDialog, Button, Flex, ScrollView} from 'native-base'
 import { AntDesign } from '@expo/vector-icons';
 
 const testData = [
@@ -25,16 +25,16 @@ const testData = [
 
 const testCircle = [
     {
-        circleName: 'Julia Sherman',
+        circleName: 'The Car Bros',
     },
     {
-        name: 'Miss Lady',
+        circleName: 'ShellHacks 2022',
     },
     {
-        name: 'Mark Keeper',
+        circleName: 'The Tech Bros',
     },
     {
-        name: 'Person McPerson',
+        circleName: 'The Hunters',
     }
 ]
 
@@ -52,14 +52,15 @@ export default function FriendScreen() {
     
   return (
     <SafeAreaView>
+    <ScrollView>
     <Center maxW='80%' w='80%' alignSelf='center'>
      <Center alignItems='center' alignSelf='center'>
       <VStack space={4} alignItems="center">
         <Text fontSize="lg">Your friends</Text>
-        <Input size="sm" placeholder="Search your friends" onChangeText={testData.filter(data => data.name.includes(newText))} />
+        <Input variant="rounded" placeholder="Search for a friend" onChangeText={(e) => console.log(e)} />
       </VStack>
      </Center>
-    
+     
       <Center mt={2} alignItems='left' alignSelf='left'>
         <Text bold fontSize="md">MY FRIENDS</Text>
       </Center>
@@ -92,7 +93,7 @@ export default function FriendScreen() {
                     <Button variant="unstyled" colorScheme="coolGray" onPress={onClose} ref={cancelRef}>
                         Cancel
                     </Button>
-                    <Button colorScheme="danger" onPress={() => {onClose, removeFriend(index)} }>
+                    <Button colorScheme="danger" onPress={() => {onClose(), removeFriend(index)} }>
                         Confirm
                     </Button>
                     </Button.Group>
@@ -104,7 +105,28 @@ export default function FriendScreen() {
         })}
       </VStack>
 
-    </Center>
+      <Center mt={2} alignItems='left' alignSelf='left'>
+        <Text bold fontSize="md">MY CIRCLES</Text>
+      </Center>
+
+      <Flex direction='row' flexWrap={true} justifyContent='space-around'>
+        {testCircle.map((data, index) => {
+            return (
+                <Flex direction='row' mt={2} flexWrap={true} justifyContent='space-around'>
+                    <VStack mt={2} space={4} alignItems='center' mx={5} key={index}>
+                        <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
+                        uri: 'https://placeimg.com/80/80/people'
+                        }} />
+                        <Text fontSize='md'>{data.circleName}</Text>
+                    </VStack>
+                </Flex>
+            )
+        })}
+      </Flex>
+
+
+    </Center>    
+    </ScrollView>
     </SafeAreaView>
   )
 }
