@@ -1,4 +1,5 @@
 import { Camera, CameraType } from "expo-camera";
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { useState } from "react";
 import {
   Button,
@@ -30,12 +31,12 @@ export default function CameraScreen() {
   if (!permission.granted) {
     // Camera permissions are not granted yet
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={{ textAlign: "center" }}>
           We need your permission to show the camera
         </Text>
         <Button onPress={requestPermission} title="grant permission" />
-      </View>
+      </SafeAreaView>
     );
   }
 

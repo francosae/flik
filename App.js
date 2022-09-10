@@ -6,8 +6,8 @@ import {
   FriendScreen,
   ProfileScreen,
   CameraScreen,
-  RegisterScreen,
-  Register
+  Register,
+  Login
 } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
@@ -44,7 +44,7 @@ function AppContainer() {
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Register" component={Register} />
-        {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
+        <Tab.Screen name="Login" component={Login} />
       </Tab.Navigator>
     </NavigationContainer>
   );

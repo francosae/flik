@@ -4,5 +4,5 @@ import FriendScreen from "./FriendScreen/FriendScreen";
 import ProfileScreen from "./ProfileScreen/ProfileScreen";
 import CameraScreen from "./CameraScreen/CameraScreen";
 import Register from "./RegisterScreen/Register";
-
-export {ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen,Register, }
+import Login from "./LoginScreen/Login";
+export {ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen,Register, Login}
