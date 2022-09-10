@@ -1,6 +1,13 @@
 import { NativeBaseProvider } from "native-base";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen } from "./screens";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  ExploreScreen,
+  FeedScreen,
+  FriendScreen,
+  ProfileScreen,
+  CameraScreen,
+  RegisterScreen,
+} from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { getApps, initializeApp } from "firebase/app";
@@ -21,7 +28,7 @@ export default function App() {
 
 const Tab = createBottomTabNavigator();
 
-function AppContainer(){
+function AppContainer() {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -35,10 +42,9 @@ function AppContainer(){
         <Tab.Screen name="Friends" component={FriendScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
-        {/* <Tab.Screen name="Register" component={RegisterScreen} />
-        <Tab.Screen name="Login" component={LoginScreen} /> */}
+        {/* <Tab.Screen name="Register" component={RegisterScreen} /> */}
+        {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
