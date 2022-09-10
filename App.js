@@ -1,7 +1,10 @@
 import { NativeBaseProvider } from "native-base";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen } from "./screens";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { FontAwesome } from '@expo/vector-icons';
+
 const Stack = createNativeStackNavigator();
 import { StatusBar } from "expo-status-bar";
 import React from "react";
@@ -14,6 +17,7 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(Firebase);
 } 
 
+
 export default function App() {
   return (
     <NativeBaseProvider>
@@ -22,15 +26,19 @@ export default function App() {
   );
   }
 
+const Tab = createBottomTabNavigator();
+
 function AppContainer(){
   return(
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Explore" component={ExploreScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Friends" component={FriendScreen} />
-        <Stack.Screen name="Feed" component={FeedScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator initialRouteName="Feed" screenOptions={{
+          headerShown: false
+        }}>
+        <Tab.Screen name="Feed" component={FeedScreen} />
+        <Tab.Screen name="Explore" component={ExploreScreen} />
+        <Tab.Screen name="Friends" component={FriendScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }

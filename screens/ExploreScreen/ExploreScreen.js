@@ -6,7 +6,8 @@ export default function ExploreScreen({ navigation }) {
   return (
     <SafeAreaView>
       <Text>ExploreScreen</Text>
-      <Button onPress={ () => navigation.navigate('Feed')}> Test </Button>
+      <Button onPress={ () => navigation.navigate('Feed')}> Feed </Button>
+      <Button onPress={ () => navigation.navigate('Friends')}> Friends </Button>
     </SafeAreaView>
   )
 }
