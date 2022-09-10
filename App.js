@@ -16,10 +16,10 @@ function AppContainer(){
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Explore" component={ExploreScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Friends" component={FriendScreen} />
-        <Stack.Screen name="Feed" component={FeedScreen} />
+        <Stack.Screen name="Explore" component={ExploreScreen} screenOptions={{ headerShown: false }} />
+        <Stack.Screen name="Profile" component={ProfileScreen} screenOptions={{ headerShown: false }}/>
+        <Stack.Screen name="Friends" component={FriendScreen} screenOptions={{ headerShown: false }} />
+        <Stack.Screen name="Feed" component={FeedScreen} screenOptions={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
