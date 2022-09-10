@@ -56,7 +56,7 @@ export default function FriendScreen() {
      <Center alignItems='center' alignSelf='center'>
       <VStack space={4} alignItems="center">
         <Text fontSize="lg">Your friends</Text>
-        <Input size="sm" placeholder="Search your friends" />
+        <Input size="sm" placeholder="Search your friends" onChangeText={testData.filter(data => data.name.includes(newText))} />
       </VStack>
      </Center>
     
