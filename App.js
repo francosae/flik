@@ -1,7 +1,6 @@
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen } from "./screens";
-
+import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen} from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -38,6 +37,7 @@ function AppContainer(){
         <Tab.Screen name="Explore" component={ExploreScreen} />
         <Tab.Screen name="Friends" component={FriendScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Camera" component={CameraScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   )
