@@ -3,21 +3,22 @@ import React, { Component } from "react";
 import { TextInput, Button, StyleSheet, Text, View } from "react-native";
 import firebase from "firebase";
 
-export class Login extends Component() {
+export class Register extends Component() {
   constructor(props) {
     super(props);
 
     this.state = {
+      username: "",
       email: "",
       password: "",
     };
     this.onSignUp = this.onSignUp.bind(this);
   }
   onSignUp() {
-    const { email, password } = this.state;
+    const { username, email, password } = this.state;
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUsernameWithEmailAndPassword(email, password)
       .then((res) => {
         console.log(res);
       })
@@ -29,6 +30,10 @@ export class Login extends Component() {
     return (
       <View>
         <TextInput
+          placeholder="username"
+          onTextChange={(username) => this.setSate({ username })}
+        />
+        <TextInput
           placeholder="email"
           onTextChange={(email) => this.setSate({ email })}
         />
@@ -37,9 +42,9 @@ export class Login extends Component() {
           secureTextEntry={true}
           onTextChange={(password) => this.setSate({ password })}
         />
-        <Button onClick={() => this.onSignUp()} title="Sign In" />
+        <Button onClick={() => this.onSignUp()} title="Sign up" />
       </View>
     );
   }
 }
-export default Login;
+export default Register;
