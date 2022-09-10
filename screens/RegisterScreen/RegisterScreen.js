@@ -10,8 +10,9 @@ import {
 } from "react-native";
 
 // import { auth } from "../../Firebase/Firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import fire from "../../Firebase/Firebase";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState("");
@@ -37,6 +38,7 @@ export default function RegisterScreen() {
           });
       });
   };
+
   return (
     <View>
       <View style={styles.container}>
