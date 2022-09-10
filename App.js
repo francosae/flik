@@ -1,8 +1,7 @@
 import { NativeBaseProvider } from "native-base";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen } from "./screens";
-const Stack = createNativeStackNavigator();
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
@@ -12,15 +11,19 @@ export default function App() {
   );
   }
 
+const Tab = createBottomTabNavigator();
+
 function AppContainer(){
   return(
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Explore" component={ExploreScreen} screenOptions={{ headerShown: false }} />
-        <Stack.Screen name="Profile" component={ProfileScreen} screenOptions={{ headerShown: false }}/>
-        <Stack.Screen name="Friends" component={FriendScreen} screenOptions={{ headerShown: false }} />
-        <Stack.Screen name="Feed" component={FeedScreen} screenOptions={{ headerShown: false }} />
-      </Stack.Navigator>
+      <Tab.Navigator initialRouteName="Feed" screenOptions={{
+    headerShown: false
+  }}>
+        <Tab.Screen name="Feed" component={FeedScreen} />
+        <Tab.Screen name="Explore" component={ExploreScreen} />
+        <Tab.Screen name="Friends" component={FriendScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
