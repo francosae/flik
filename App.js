@@ -42,7 +42,7 @@ function AppContainer() {
         <Tab.Screen name="Friends" component={FriendScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
-        {/* <Tab.Screen name="Register" component={RegisterScreen} /> */}
+        <Tab.Screen name="Register" component={RegisterScreen} />
         {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
