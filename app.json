@@ -2,7 +2,6 @@
   "expo": {
     "name": "flik",
     "slug": "flik",
-    "owner": "francosae",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

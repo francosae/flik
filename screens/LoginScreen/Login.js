@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { TextInput, Button, StyleSheet, Text, View } from "react-native";
-import firebase from 'firebase/compat/app';
+import firebase from "firebase";
 
 export class Login extends Component() {
   constructor(props) {

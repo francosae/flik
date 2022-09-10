@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { HStack, VStack, Button, Text, ScrollView, Stack } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
-import FeedCard from "../../Components/FeedCard";
+import FeedCard from "../../Components/FeedCard"
 import { useState } from "react";
 
 export default function FeedScreen() {
@@ -39,15 +39,14 @@ function Header() {
           style={{
             backgroundColor: "black",
             borderRadius: 18,
-            width: "33%",
           }}
         >
           All friends
         </Button>
-        <Button size={"lg"} variant="unstyled" stlye={{ width: "33%" }}>
+        <Button size={"lg"} variant="unstyled">
           Circle Name
         </Button>
-        <Button size={"lg"} variant="unstyled" style={{ width: "33%" }}>
+        <Button size={"lg"} variant="unstyled">
           Circle Name
         </Button>
       </HStack>
