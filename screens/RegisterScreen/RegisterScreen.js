@@ -9,23 +9,36 @@ import {
   TextInput,
 } from "react-native";
 
-import { authentication } from "../../Firebase/Firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../../Firebase/Firebase";
+import fire from "../../Firebase/Firebase";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const Register = () => {
+  const Register = async () => {
     console.log("here");
-    createUserWithEmailAndPassword(authentication, email, password)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        fire
+          .firestore()
+          .collection("users")
+          .doc(fire.auth().currentUser.uid)
+          .set({
+            username,
+            email,
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       });
   };
+
   return (
     <View>
       <View style={styles.container}>
@@ -33,6 +46,11 @@ export default function RegisterScreen() {
           placeholder="email"
           value={email}
           onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          placeholder="username"
+          value={username}
+          onChangeText={(text) => setUsername(text)}
         />
         <TextInput
           placeholder="password"
