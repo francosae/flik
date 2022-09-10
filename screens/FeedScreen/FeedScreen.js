@@ -21,9 +21,9 @@ function Header() {
   return (
     <VStack space={1} alignItems="center">
       <Text
+        fontWeight={"700"}
         style={{
           fontSize: 34,
-          fontWeight: "bold",
           color: "#AAD6A0",
           lineHeight: "42.84px",
         }}
@@ -55,7 +55,8 @@ function Header() {
           View Today's Hunt
         </Button>
         <Text
-          style={{ fontSize: 30, fontWeight: "bold", lineHeight: "37.8px" }}
+          fontWeight={"700"}
+          style={{ fontSize: 30, lineHeight: "37.8px", color: "#AAD6A0" }}
         >
           10:30:00
         </Text>
