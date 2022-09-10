@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { TextInput, Button } from "native-base";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
+
 import { authentication } from "../../Firebase/Firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
@@ -10,6 +18,7 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
 
   const Login = () => {
+    console.log("here");
     signInWithEmailAndPassword(authentication, email, password)
       .then((res) => {
         setIsSignedIn(true);
@@ -29,23 +38,39 @@ export default function LoginScreen() {
       });
   };
   return (
-    <SafeAreaView>
-      <TextInput
-        placeholder="email"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-      />
-      <TextInput
-        placeholder="password"
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry={true}
-      />
-      {isSignedIn === true ? (
-        <Button title="logout" onPress={Logout}></Button>
-      ) : (
-        <Button title="login" onPress={Login}></Button>
-      )}
-    </SafeAreaView>
+    <View>
+      <View style={styles.container}>
+        <TextInput
+          placeholder="email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          placeholder="password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry={true}
+        />
+        {isSignedIn === true ? (
+          <Button title="logout" onPress={Logout}></Button>
+        ) : (
+          <Button title="login" onPress={Login}></Button>
+        )}
+      </View>
+      <View></View>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "red",
+    position: "absolute",
+    top: 10,
+    left: 0,
+    right: 0,
+    bottom: -200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

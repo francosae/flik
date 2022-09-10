@@ -7,8 +7,8 @@ import {
   ProfileScreen,
   CameraScreen,
   RegisterScreen,
+  LoginScreen
 } from "./screens";
-import { LoginScreen } from "./screens/LoginScreen/LoginScreen"
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { getApps, initializeApp } from "firebase/app";
