@@ -4,6 +4,19 @@ import { ExploreScreen, FeedScreen, FriendScreen, ProfileScreen, CameraScreen} f
 import { NavigationContainer } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
 
+const Stack = createNativeStackNavigator();
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+import * as firebase from "firebase";
+import Firebase from "../Firebase/Firebase";
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(Firebase);
+} 
+
+
 export default function App() {
   return (
     <NativeBaseProvider>
