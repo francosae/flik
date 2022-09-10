@@ -6,9 +6,9 @@ import {
   FriendScreen,
   ProfileScreen,
   CameraScreen,
-  Register,
-  Login
+  RegisterScreen,
 } from "./screens";
+import { LoginScreen } from "./screens/LoginScreen/LoginScreen"
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { getApps, initializeApp } from "firebase/app";
@@ -43,8 +43,8 @@ function AppContainer() {
         <Tab.Screen name="Friends" component={FriendScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
-        <Tab.Screen name="Register" component={Register} />
-        <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="Register" component={RegisterScreen} />
+        <Tab.Screen name="Login" component={LoginScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
