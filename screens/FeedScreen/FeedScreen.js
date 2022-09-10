@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { HStack, VStack, Button, Text, ScrollView, Stack } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import FeedCard from "../../Components/FeedCard";
+import { useState } from "react";
 
 export default function FeedScreen() {
   return (
@@ -18,8 +19,10 @@ export default function FeedScreen() {
 }
 
 function Header() {
+  const [promptActive, setPromptActive] = useState(false);
+
   return (
-    <Stack direction="column" space={1} alignItems="center">
+    <Stack direction="column" space={1} alignItems="center" pb={2}>
       <Text
         fontWeight={"700"}
         style={{
@@ -50,7 +53,14 @@ function Header() {
       <HStack height={"38px"} width={"353px"} justifyContent={"space-between"}>
         <Button
           variant="unstyled"
-          endIcon={<AntDesign name="down" size={24} color="black" />}
+          endIcon={
+            promptActive ? (
+              <AntDesign name="up" size={18} color="black" />
+            ) : (
+              <AntDesign name="down" size={18} color="black" />
+            )
+          }
+          onPress={() => setPromptActive(!promptActive)}
         >
           View Today's Hunt
         </Button>
@@ -61,6 +71,15 @@ function Header() {
           10:30:00
         </Text>
       </HStack>
+      {promptActive && <Prompt />}
     </Stack>
+  );
+}
+
+function Prompt() {
+  return (
+    <Text pb={3} fontSize={12} width={"273px"} textAlign="center">
+      Take a photo of something that reminds you of your best friend.
+    </Text>
   );
 }
