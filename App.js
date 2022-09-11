@@ -7,12 +7,13 @@ import {
   ProfileScreen,
   CameraScreen,
   RegisterScreen,
-  LoginScreen
+  LoginScreen,
 } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import { getApps, initializeApp } from "firebase/app";
 import { firebaseConfig } from "./Firebase/Firebase";
+import { useState } from "react";
 
 if (getApps().length < 1) {
   initializeApp(firebaseConfig);
@@ -30,10 +31,11 @@ export default function App() {
 const Tab = createBottomTabNavigator();
 
 function AppContainer() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Feed"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}
@@ -44,7 +46,16 @@ function AppContainer() {
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Register" component={RegisterScreen} />
-        {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
+        <Tab.Screen
+          name="Login"
+          children={(props) => (
+            <LoginScreen
+              {...props}
+              setIsSignedIn={setIsSignedIn}
+              isSignedIn={isSignedIn}
+            />
+          )}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
