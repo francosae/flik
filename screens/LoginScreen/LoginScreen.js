@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Box, VStack, Text, TextArea, Button } from "native-base";
+import { Box, VStack, Text, Input, Button } from "native-base";
 import { authentication } from "../../Firebase/Firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import fire from "../../Firebase/Firebase";
@@ -62,7 +62,7 @@ export default function LoginScreen({ navigation, isSignedIn, setIsSignedIn }) {
           The photo hunting app
         </Text>
         <VStack width={"100%"} space={3} alignItems={"center"}>
-          <TextArea
+          <Input
             width={"80%"}
             h={10}
             placeholder="Email"
@@ -70,10 +70,11 @@ export default function LoginScreen({ navigation, isSignedIn, setIsSignedIn }) {
             onChange={(e) => setEmail(e.currentTarget.value)}
             onChangeText={(text) => setEmail(text)}
           />
-          <TextArea
+          <Input
             width={"80%"}
             h={10}
             placeholder="Password"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.currentTarget.value)}
             onChangeText={(text) => setPassword(text)}

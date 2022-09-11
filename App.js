@@ -1,7 +1,5 @@
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 import {
   ExploreScreen,
   FeedScreen,
@@ -16,6 +14,10 @@ import React from "react";
 import { getApps, initializeApp } from "firebase/app";
 import { firebaseConfig } from "./Firebase/Firebase";
 import { useState } from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Entypo } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 if (getApps().length < 1) {
   initializeApp(firebaseConfig);
@@ -31,6 +33,7 @@ export default function App() {
 }
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 function AppContainer() {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -41,13 +44,52 @@ function AppContainer() {
           initialRouteName="Feed"
           screenOptions={{
             headerShown: false,
+            tabBarShowLabel: false,
           }}
         >
-          <Tab.Screen name="Feed" component={FeedScreen} />
-          <Tab.Screen name="Explore" component={ExploreScreen} />
-          <Tab.Screen name="Friends" component={FriendScreen} />
-          <Tab.Screen name="Profile" component={ProfileScreen} />
-          <Tab.Screen name="Camera" component={CameraScreen} />
+          <Tab.Screen
+            name="Feed"
+            component={FeedScreen}
+            options={{
+              tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+            }}
+          />
+          <Tab.Screen
+            name="Explore"
+            component={ExploreScreen}
+            options={{
+              tabBarIcon: () => (
+                <FontAwesome name="search" size={24} color="black" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Camera"
+            component={CameraScreen}
+            options={{
+              tabBarIcon: () => (
+                <Entypo name="camera" size={24} color="black" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Friends"
+            component={FriendScreen}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name="people" size={24} color="black" />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Profile"
+            component={ProfileScreen}
+            options={{
+              tabBarIcon: () => (
+                <Ionicons name="person-circle-sharp" size={24} color="black" />
+              ),
+            }}
+          />
         </Tab.Navigator>
       ) : (
         <Stack.Navigator
