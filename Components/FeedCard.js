@@ -1,5 +1,6 @@
 import React from "react";
 import { HStack, VStack, Text, Avatar, Image } from "native-base";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function FeedCard() {
   return (
@@ -17,6 +18,10 @@ export default function FeedCard() {
         height={"420px"}
         borderRadius={"13px"}
       />
+      <HStack space={2}>
+        <FontAwesome5 name="heart" size={24} />
+        <FontAwesome5 name="comment-dots" size={24} color="black" />
+      </HStack>
       <VStack>
         <Comment
           user={"dabarcenas"}
