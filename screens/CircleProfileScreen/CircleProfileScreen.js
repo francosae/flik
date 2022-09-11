@@ -62,12 +62,9 @@ import {
             <Text style={{ fontWeight: "300" }}>100</Text>
           </VStack>
         </HStack>
-        <HStack pb={2} space={4} style={{ width: "80%" }}>
+        <HStack pb={2} space={4} style={{ width: "80%" }} justifyContent='center'>
           <Button colorScheme='danger' onPress={() => setIsOpen(!isOpen)} style={{ width: "50%" }}>
             Leave Circle
-          </Button>
-          <Button colorScheme='success' onPress={() => setInviteOpen(!inviteOpen)} style={{ width: "50%" }}>
-            Send Invitation
           </Button>
         </HStack>
 
