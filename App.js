@@ -8,7 +8,8 @@ import {
   ProfileScreen,
   CameraScreen,
   RegisterScreen,
-  LoginScreen
+  LoginScreen,
+  NavigationScreen
 } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
@@ -29,7 +30,7 @@ export default function App() {
 }
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator ();
+
 
 function AppContainer() {
   return (
@@ -42,14 +43,14 @@ function AppContainer() {
       >
         <Tab.Screen name="Feed" component={FeedScreen} />
         <Tab.Screen name="Explore" component={ExploreScreen} />
-        <Tab.Screen name="Friends" component={FriendScreen} />
+        <Tab.Screen name="Friends" component={NavigationScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Register" component={RegisterScreen} />
+        
         {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
         
       </Tab.Navigator>
-
     </NavigationContainer>
   );
 }

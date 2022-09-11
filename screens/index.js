@@ -5,7 +5,8 @@ import ProfileScreen from "./ProfileScreen/ProfileScreen";
 import CameraScreen from "./CameraScreen/CameraScreen";
 import RegisterScreen from "./RegisterScreen/RegisterScreen";
 import LoginScreen from "./LoginScreen/LoginScreen";
-
+import NavigationScreen from "./NavigationScreen/NavigationScreen";
+import UserProfileScreen from "./UserProfileScreen/UserProfileScreen";
 export {
   ExploreScreen,
   FeedScreen,
@@ -14,4 +15,6 @@ export {
   CameraScreen,
   RegisterScreen,
   LoginScreen,
+  NavigationScreen,
+  UserProfileScreen
 };

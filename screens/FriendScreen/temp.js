@@ -57,7 +57,7 @@ export const exampleCircles = [
     },
     {
         name: "Rectangle Circle",
-        userCount: "1=6"
+        userCount: "16"
     },
     {
         name: "Triangle Circle",
