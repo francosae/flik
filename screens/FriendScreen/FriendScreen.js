@@ -105,7 +105,8 @@ function FriendDisplay({ navigation }) {
                   User: user
                 })} colorScheme="success"
                 justifyContent='space-between' rightIcon={<AntDesign name="close" size={24} color="black"
-                 />} key={index}
+                onPress={() => exampleUsers.slice(index, 1)}
+                />} key={index}
                  >
                 <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-evenly'>
                 <HStack key={index}>

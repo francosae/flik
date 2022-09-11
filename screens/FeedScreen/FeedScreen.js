@@ -34,9 +34,12 @@ export default function FeedScreen() {
         />
       }>
       {selected === 'All Friends' ? UserFeed.map((user, index) => {
-        return ( <FeedCard user={user} />)  
+        return ( <FeedCard user={user} key={index} />)  
     }) : <></>}
      {selected === 'Shellhacks' ? UserFeed2.map((user, index) => {
+        return ( <FeedCard user={user} />)  
+    }) : <></>}
+         {selected === 'Car Guys' ? UserFeed2.map((user, index) => {
         return ( <FeedCard user={user} />)  
     }) : <></>}
       </ScrollView>

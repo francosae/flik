@@ -76,7 +76,7 @@ function AppContainer() {
           />
           <Tab.Screen
             name="Friends"
-            component={FriendScreen}
+            component={NavigationScreen}
             options={{
               tabBarIcon: () => (
                 <Ionicons name="people" size={24} color="black" />
