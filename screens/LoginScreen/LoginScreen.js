@@ -24,7 +24,6 @@ export default function LoginScreen({ navigation, isSignedIn, setIsSignedIn }) {
             password,
           });
         setIsSignedIn(true);
-        navigation.navigate("Feed");
       })
       .catch((error) => {
         console.log(error);

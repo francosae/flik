@@ -1,5 +1,6 @@
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   ExploreScreen,
   FeedScreen,
@@ -29,34 +30,54 @@ export default function App() {
 }
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 function AppContainer() {
   const [isSignedIn, setIsSignedIn] = useState(false);
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Tab.Screen name="Feed" component={FeedScreen} />
-        <Tab.Screen name="Explore" component={ExploreScreen} />
-        <Tab.Screen name="Friends" component={FriendScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen name="Camera" component={CameraScreen} />
-        <Tab.Screen name="Register" component={RegisterScreen} />
-        <Tab.Screen
-          name="Login"
-          children={(props) => (
-            <LoginScreen
-              {...props}
-              setIsSignedIn={setIsSignedIn}
-              isSignedIn={isSignedIn}
-            />
-          )}
-        />
-      </Tab.Navigator>
+      {isSignedIn ? (
+        <Tab.Navigator
+          initialRouteName="Feed"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Tab.Screen name="Feed" component={FeedScreen} />
+          <Tab.Screen name="Explore" component={ExploreScreen} />
+          <Tab.Screen name="Friends" component={FriendScreen} />
+          <Tab.Screen name="Profile" component={ProfileScreen} />
+          <Tab.Screen name="Camera" component={CameraScreen} />
+        </Tab.Navigator>
+      ) : (
+        <Stack.Navigator
+          initialRouteName="Login"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen
+            name="Login"
+            children={(props) => (
+              <LoginScreen
+                {...props}
+                setIsSignedIn={setIsSignedIn}
+                isSignedIn={isSignedIn}
+              />
+            )}
+          />
+          <Stack.Screen
+            name="Register"
+            children={(props) => (
+              <RegisterScreen
+                {...props}
+                setIsSignedIn={setIsSignedIn}
+                isSignedIn={isSignedIn}
+              />
+            )}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 }
