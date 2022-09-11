@@ -8,6 +8,7 @@ import {
   CameraScreen,
   RegisterScreen,
   LoginScreen,
+  NavigationScreen
 } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
@@ -34,6 +35,7 @@ export default function App() {
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
 
 function AppContainer() {
   const [isSignedIn, setIsSignedIn] = useState(false);

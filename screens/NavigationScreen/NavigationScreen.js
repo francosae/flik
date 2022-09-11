@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import FriendScreen from '../FriendScreen/FriendScreen';
 import UserProfileScreen from '../UserProfileScreen/UserProfileScreen';
