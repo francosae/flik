@@ -9,8 +9,9 @@ import {
     Flex,
     Button,
     Box,
+    Alert,
   } from "native-base";
-  import React from "react";
+  import React, { useState} from "react";
   import { SafeAreaView } from "react-native-safe-area-context";
   
   export default function UserProfileScreen({ route, navigation }) {
@@ -27,6 +28,8 @@ import {
   }
   
   function ProfileHeader({ user }) {
+    const [request, setRequest] = useState(false)
+
     return (
       <VStack space={2} alignItems={"center"} pt={4}>
         <Avatar
@@ -49,11 +52,28 @@ import {
             <Text style={{ fontWeight: "300" }}>200</Text>
           </VStack>
         </HStack>
-        <HStack pb={2} space={4} style={{ width: "80%" }}>
-          <Button style={{ backgroundColor: "black", width: "50%" }}>
+        <HStack pb={2} space={4} style={{ width: "80%" }} justifyContent='space-evenly'>
+        {request === false ?
+        <Button style={{ backgroundColor: "black", width: "50%" }} onPress={ () => setRequest(true)}>
             Add Friend
-          </Button>
-          <Button style={{ backgroundColor: "black", width: "50%" }}>
+        </Button> : 
+        <>
+        <Alert w="55%" variant="outline-light" colorScheme="success" status="success">
+        <VStack space={2} flexShrink={1} w="100%">
+          <HStack flexShrink={1} space={2} alignItems="center" justifyContent="space-between">
+            <HStack space={2} flexShrink={1} alignItems="center">
+              <Alert.Icon />
+              <Text color='success'>
+                Friend request sent! 
+              </Text>
+            </HStack>
+          </HStack>
+        </VStack>
+        </Alert>
+        </>
+                  }
+
+          <Button style={{ backgroundColor: "black", width: "45%" }}>
             Add to Circle
           </Button>
         </HStack>
@@ -68,42 +88,42 @@ import {
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
         <Box px={0.3} py={0.5}>
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
         <Box px={0.3} py={0.5}>
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
         <Box px={0.3} py={0.5}>
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
         <Box px={0.3} py={0.5}>
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
         <Box px={0.3} py={0.5}>
           <Image
             alt="User image"
             size="xl"
-            source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+            source={{ uri: "https://picsum.photos/200" }}
           />
         </Box>
       </Flex>

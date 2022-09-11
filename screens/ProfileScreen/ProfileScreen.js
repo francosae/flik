@@ -48,14 +48,6 @@ function ProfileHeader() {
           <Text style={{ fontWeight: "300" }}>200</Text>
         </VStack>
       </HStack>
-      <HStack pb={2} space={4} style={{ width: "80%" }}>
-        <Button style={{ backgroundColor: "black", width: "50%" }}>
-          Add Friend
-        </Button>
-        <Button style={{ backgroundColor: "black", width: "50%" }}>
-          Add to Circle
-        </Button>
-      </HStack>
     </VStack>
   );
 }
@@ -67,44 +59,121 @@ function PhotoGrid() {
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
       <Box px={0.3} py={0.5}>
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
       <Box px={0.3} py={0.5}>
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
       <Box px={0.3} py={0.5}>
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
       <Box px={0.3} py={0.5}>
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
       <Box px={0.3} py={0.5}>
         <Image
           alt="User image"
           size="xl"
-          source={{ uri: "https://wallpaperaccess.com/full/317501.jpg" }}
+          source={{ uri: "https://picsum.photos/200" }}
         />
       </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      <Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box><Box px={0.3} py={0.5}>
+        <Image
+          alt="User image"
+          size="xl"
+          source={{ uri: "https://picsum.photos/200" }}
+        />
+      </Box>
+      
     </Flex>
   );
 }

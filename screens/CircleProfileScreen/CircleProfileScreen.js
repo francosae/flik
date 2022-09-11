@@ -45,7 +45,7 @@ import {
       <VStack space={2} alignItems={"center"}    pt={4}>
         <Avatar 
           source={{ 
-            uri: "https://placeimg.com/80/80/   people",
+            uri: "https://placeimg.com/80/80/people",
           }}    
           size="2xl"    
         />

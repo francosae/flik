@@ -2,16 +2,21 @@ import React from "react";
 import { HStack, VStack, Text, Avatar, Image } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function FeedCard() {
+export default function FeedCard({ user }) {
   return (
     <VStack space={3} px={4} paddingBottom={4}>
       <HStack space={2} alignItems="center">
-        <Avatar size="sm" />
-        <Text bold>dabarcenas</Text>
+      <Avatar 
+          source={{ 
+            uri: "https://placeimg.com/80/80/people",
+          }}    
+          size="sm"    
+        />
+        <Text bold>{user?.Username}</Text>
       </HStack>
       <Image
         source={{
-          uri: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg",
+          uri: "https://picsum.photos/200",
         }}
         alt="Alternate Text"
         width={"364px"}
@@ -24,8 +29,8 @@ export default function FeedCard() {
       </HStack>
       <VStack>
         <Comment
-          user={"dabarcenas"}
-          comment={"I took a picture of my silly cat Jorge!"}
+          user={user?.Username}
+          comment={"look at this picture i took!"}
         />
         <Text>View all comments...</Text>
         <Comment user={"reibrowner"} comment={"hahaha epic"} />
