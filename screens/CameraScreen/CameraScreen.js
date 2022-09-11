@@ -1,5 +1,5 @@
 import { Camera, CameraType } from "expo-camera";
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import {
   Button,
@@ -9,6 +9,16 @@ import {
   View,
   Image,
 } from "react-native";
+
+import fire from "../../Firebase/Firebase";
+// import "firebase/storage";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import "firebase/firestore";
+
+require("firebase/storage");
+
+import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
 export default function CameraScreen() {
   const [type, setType] = useState(CameraType.back);
@@ -20,7 +30,22 @@ export default function CameraScreen() {
     if (camera) {
       const data = await camera.takePictureAsync(null);
       setImage(data.uri);
+      console.log(data.uri);
     }
+  };
+
+  const uploadImage = async () => {
+    const uri = image;
+    const res = await fetch(uri);
+
+    const bytes = await res.blob();
+
+    const storage = getStorage(fire);
+    const storageRef = ref(
+      storage,
+      `post/${fire.auth().currentUser.uid}/${Math.random().toString(36)}`
+    );
+    await uploadBytesResumable(storageRef, bytes);
   };
 
   if (!permission) {
@@ -60,6 +85,9 @@ export default function CameraScreen() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => takePicture()}>
             <Text style={styles.text}>Take Picture</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => uploadImage()}>
+            <Text style={styles.text}>Upload</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.imageContainer}>
