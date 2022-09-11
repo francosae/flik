@@ -1,6 +1,7 @@
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import {
   ExploreScreen,
   FeedScreen,
@@ -31,6 +32,7 @@ export default function App() {
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
 
 function AppContainer() {
   const [isSignedIn, setIsSignedIn] = useState(false);
