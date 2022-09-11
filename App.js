@@ -1,5 +1,6 @@
 import { NativeBaseProvider } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import {
   ExploreScreen,
   FeedScreen,
@@ -28,6 +29,7 @@ export default function App() {
 }
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator ();
 
 function AppContainer() {
   return (
@@ -45,7 +47,9 @@ function AppContainer() {
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Register" component={RegisterScreen} />
         {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
+        
       </Tab.Navigator>
+
     </NavigationContainer>
   );
 }

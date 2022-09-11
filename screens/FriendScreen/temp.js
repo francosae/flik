@@ -49,17 +49,34 @@ export const exampleUsers = [
         at: "@mobert"
     },
 ]
-    //   <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-around'>
-    //     {testCircle.map((data, index) => {
-    //         return (
-    //             <Flex direction='row' mt={2} flexWrap={true} alignItems='left'>
-    //                 <VStack mt={2} alignItems='left' textAlign='center' key={index}>
-    //                     <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
-    //                     uri: 'https://placeimg.com/80/80/people'
-    //                     }} />
-    //                     <Text fontSize='md'>{data.circleName}</Text>
-    //                 </VStack>
-    //             </Flex>
-    //         )
-    //     })}
-    //   </Flex>
+
+export const exampleCircles = [
+    {
+        name: "Circle Circle",
+        userCount: "12"
+    },
+    {
+        name: "Rectangle Circle",
+        userCount: "1=6"
+    },
+    {
+        name: "Triangle Circle",
+        userCount: "2"
+    },
+    {
+        name: "Square Circle",
+        userCount: "3"
+    },
+    {
+        name: "Round Circle",
+        userCount: "5"
+    },
+    {
+        name: "Strange Circle",
+        userCount: "7"
+    },
+    {
+        name: "Confused Circle",
+        userCount: "8"
+    },
+]
