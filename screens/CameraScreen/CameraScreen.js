@@ -10,7 +10,6 @@ import "firebase/storage";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/firestore";
-
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
 export default function CameraScreen({ navigation }) {
@@ -27,11 +26,14 @@ export default function CameraScreen({ navigation }) {
       const data = await camera.takePictureAsync();
       setImage(data.uri);
       console.log("took picture");
+      console.log(data.uri);
+
     }
   };
 
   const uploadImage = async () => {
     setIsUploading(true);
+
     const uri = image;
     const res = await fetch(uri);
 
@@ -47,6 +49,7 @@ export default function CameraScreen({ navigation }) {
     setIsUploading(false);
     retakePicture();
     navigation.navigate("Feed");
+
   };
 
   if (!permission) {
@@ -123,6 +126,7 @@ export default function CameraScreen({ navigation }) {
               ref={(ref) => setCamera(ref)}
             />
           )}
+
         </View>
         {image ? (
           <HStack space={5} alignItems={"center"}>

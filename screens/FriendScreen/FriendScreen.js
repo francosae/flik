@@ -7,14 +7,16 @@ import { exampleUsers, exampleCircles } from './temp';
 import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
-export default function FriendScreen() {
+export default function FriendScreen({ navigation }) {
     const [selected, setSelected] = useState('My Friends')
+
     return (
         <SafeAreaView>
             <ButtonNav selected={selected} setSelected={setSelected} />
             <ScrollView>
-                {selected === 'My Friends' ? <FriendDisplay/> : <></>}
+                {selected === 'My Friends' ? <FriendDisplay navigation={navigation}/> : <></>}
                 {selected === 'My Circles' ? <CircleDisplay selected={selected}/> : <></>}
+                {selected === 'My Requests' ? <RequestDisplay/> : <></>}
             </ScrollView>
         </SafeAreaView>
     )
@@ -38,6 +40,7 @@ function ButtonNav({ selected, setSelected }) {
         <Button
           size={"lg"}
           key='My Friends'
+          
           style={{
             borderRadius: 20,
             borderColor: "black",
@@ -78,8 +81,9 @@ function ButtonNav({ selected, setSelected }) {
     )
 }
 
-function FriendDisplay() {
-    const [isOpen, setIsOpen] = React.useState(false);
+function FriendDisplay({ navigation }) {
+    
+  const [isOpen, setIsOpen] = React.useState(false);
 
     const onClose = () => setIsOpen(false);
   
@@ -91,13 +95,18 @@ function FriendDisplay() {
 
     return(
         <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
-            <Input variant="rounded" placeholder="Search for a friend" />
+            <Input variant="rounded" size='lg' placeholder="Search for a friend" />
             <VStack mt={2} space={4}  w='100%' alignSelf='left'>
+            <Text w='80%' bold>MY FRIENDS ({exampleUsers.length.toString()})</Text>
             {exampleUsers.map((user, index) => {
                 return (
-                <Button width='100%' variant='ghost' onPress={() =>Alert.alert(`link to ${user.at}'s profile`)} 
+                <Button width='100%' variant='ghost' onPress={() => navigation.navigate('UserProfile',
+                {
+                  User: user
+                })} colorScheme="success"
                 justifyContent='space-between' rightIcon={<AntDesign name="close" size={24} color="black"
-                 onPress={() => setIsOpen(!isOpen)} />}  key={index}>
+                 onPress={() => navigation.navigate('MyFriends')} />} key={index}
+                 >
                 <HStack key={index}>
                 <Avatar bg="indigo.500" alignSelf="left" size="md" source={{
                 uri: 'https://placeimg.com/80/80/people'
@@ -142,14 +151,15 @@ function CircleDisplay() {
   const [showModal, setShowModal] = useState(false);
   
   return(<>
-
-    <Text>{text}</Text>
     <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
       <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-around'>
         {exampleCircles.map((circle, index) => {
             return (
                 <Flex direction='row' mt={2} flexWrap={true} alignItems='left' key={index}>
-                  <Button variant='ghost' onPress={() => {return CircleInfo, setText('pressed')}} >
+                  <Button variant='ghost' onPress={() => navigation.navigate('CircleProfile',
+                  {
+                    Circle: circle
+                  }) } colorScheme="success" >
                     <VStack mt={2} alignItems='left' textAlign='center' key={index}>
                         <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
                         uri: 'https://placeimg.com/80/80/people'
@@ -169,6 +179,7 @@ function CircleDisplay() {
 
 export function CircleInfo(){
   return (
+    <SafeAreaView>
     <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
       <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-around'>
         <Avatar bg="indigo.500" alignSelf="center" size="md" source={{
@@ -178,5 +189,15 @@ export function CircleInfo(){
 
       </Flex>
     </Center>
+    </SafeAreaView>
+  )
+}
+
+function RequestDisplay(){
+  return(
+      <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
+            <Input variant="rounded" size='lg' placeholder="Add a friend" />
+            <Text bold size='sm'>FRIEND REQUESTS (0)</Text>
+      </Center>
   )
 }

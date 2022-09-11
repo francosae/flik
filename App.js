@@ -31,8 +31,6 @@ export default function App() {
 }
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
 
 function AppContainer() {
   const [isSignedIn, setIsSignedIn] = useState(false);
