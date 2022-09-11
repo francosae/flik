@@ -9,10 +9,13 @@ import {
     Flex,
     Button,
     Box,
+    AlertDialog
   } from "native-base";
   import React from "react";
   import { SafeAreaView } from "react-native-safe-area-context";
-  
+  import { exampleCircles } from "../FriendScreen/temp";
+  import { useNavigation } from '@react-navigation/native';
+
   export default function CircleProfileScreen({ route, navigation }) {
     const { Circle } = route.params; 
     return (
@@ -27,13 +30,24 @@ import {
   }
   
   function ProfileHeader({ circle }) {
-    return (
-      <VStack space={2} alignItems={"center"} pt={4}>
-        <Avatar
-          source={{
-            uri: "https://placeimg.com/80/80/people",
-          }}
-          size="2xl"
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const onClose = () => setIsOpen(false);
+  
+    const [inviteOpen, setInviteOpen] = React.useState(false);
+
+    const inviteClose = () => setInviteOpen(false);
+
+    const cancelRef = React.useRef(null);
+    const navigation = useNavigation(); 
+    
+    return (    
+      <VStack space={2} alignItems={"center"}    pt={4}>
+        <Avatar 
+          source={{ 
+            uri: "https://placeimg.com/80/80/   people",
+          }}    
+          size="2xl"    
         />
         <Text bold style={{ fontSize: 20 }}>
           {circle.name}
@@ -49,13 +63,62 @@ import {
           </VStack>
         </HStack>
         <HStack pb={2} space={4} style={{ width: "80%" }}>
-          <Button style={{ backgroundColor: "#FF3636", width: "50%" }}>
+          <Button colorScheme='danger' onPress={() => setIsOpen(!isOpen)} style={{ width: "50%" }}>
             Leave Circle
           </Button>
-          <Button style={{ backgroundColor: "black", width: "50%" }}>
+          <Button colorScheme='success' onPress={() => setInviteOpen(!inviteOpen)} style={{ width: "50%" }}>
             Send Invitation
           </Button>
         </HStack>
+
+        <AlertDialog leastDestructiveRef={cancelRef} isOpen={inviteOpen} onClose={inviteClose}>
+        <AlertDialog.Content>
+          <AlertDialog.CloseButton />
+          <AlertDialog.Header><Text>Leave {circle.name}</Text></AlertDialog.Header>
+          <AlertDialog.Body>
+            <Text>
+            This will remove you from your friend circle, <Text bold>{circle.name}</Text>. You will no longer be able to
+            view posts from this circle.
+            </Text>
+          </AlertDialog.Body>
+          <AlertDialog.Footer>
+            <Button.Group space={2}>
+              <Button variant="unstyled" colorScheme="coolGray" onPress={onClose} ref={cancelRef}>
+                Cancel
+              </Button>
+              <Button colorScheme="danger">
+                Leave
+              </Button>
+            </Button.Group>
+          </AlertDialog.Footer>
+            </AlertDialog.Content>
+        </AlertDialog>
+
+        <AlertDialog leastDestructiveRef={cancelRef} isOpen={isOpen} onClose={onClose}>
+        <AlertDialog.Content>
+          <AlertDialog.CloseButton />
+          <AlertDialog.Header><Text>Leave {circle.name}</Text></AlertDialog.Header>
+          <AlertDialog.Body>
+            <Text>
+            This will remove you from your friend circle, <Text bold>{circle.name}</Text>. You will no longer be able to
+            view posts from this circle.
+            </Text>
+          </AlertDialog.Body>
+          <AlertDialog.Footer>
+            <Button.Group space={2}>
+              <Button variant="unstyled" colorScheme="coolGray" onPress={onClose} ref={cancelRef}>
+                Cancel
+              </Button>
+              <Button colorScheme="danger" onPress={() => {onClose, navigation.navigate('FriendDisplay', {
+                circleLeft: circle
+              }), exampleCircles.splice(1, 1)}}>
+                Leave
+              </Button>
+            </Button.Group>
+          </AlertDialog.Footer>
+            </AlertDialog.Content>
+        </AlertDialog>
+
       </VStack>
     );
   }

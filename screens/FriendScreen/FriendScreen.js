@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet, Alert } from 'react-native'
 import React, { useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Heading, HStack, Input, VStack, Text, Box, Avatar, Center, AlertDialog, Button, Flex, ScrollView, Stack, useDisclose, Stagger } from 'native-base'
+import { Divider, HStack, Input, VStack, Text, Box, Avatar, Center, AlertDialog, Button, Flex, ScrollView, Stack, useDisclose, Stagger } from 'native-base'
 import { AntDesign } from '@expo/vector-icons';
 import { exampleUsers, exampleCircles } from './temp';
 import { createNativeStackNavigator  } from '@react-navigation/native-stack';
@@ -153,6 +153,7 @@ function CircleDisplay() {
   return(<>
     <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
       <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-around'>
+        <Text w='90%' bold>MY CIRCLES ({exampleCircles.length.toString()})</Text>
         {exampleCircles.map((circle, index) => {
             return (
                 <Flex direction='row' mt={2} flexWrap={true} alignItems='left' key={index}>
@@ -197,7 +198,11 @@ function RequestDisplay(){
   return(
       <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
             <Input variant="rounded" size='lg' placeholder="Add a friend" />
-            <Text bold size='sm'>FRIEND REQUESTS (0)</Text>
+            <Text bold size='sm' w='100%' mt={2}>FRIEND REQUESTS (0)</Text>
+            <Button w='100%' h='50px' mt={-350} colorScheme='secondary' >
+              You have no friends!
+              Try adding some!
+            </Button>
       </Center>
   )
 }
