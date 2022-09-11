@@ -92,12 +92,12 @@ function FriendDisplay({ navigation }) {
     const removeFriend = (index) => {
         exampleUsers.splice(index , 1)
     }
-
     return(
         <Center mt={2} maxW='80%' w='80%' alignSelf='center'>
             <Input variant="rounded" size='lg' placeholder="Search for a friend" />
             <VStack mt={2} space={4}  w='100%' alignSelf='left'>
             <Text w='80%' bold>MY FRIENDS ({exampleUsers.length.toString()})</Text>
+            <Flex direction='column' flexWrap={true} textAlign='center'>
             {exampleUsers.map((user, index) => {
                 return (
                 <Button width='100%' variant='ghost' onPress={() => navigation.navigate('UserProfile',
@@ -105,8 +105,9 @@ function FriendDisplay({ navigation }) {
                   User: user
                 })} colorScheme="success"
                 justifyContent='space-between' rightIcon={<AntDesign name="close" size={24} color="black"
-                 onPress={() => navigation.navigate('MyFriends')} />} key={index}
+                 />} key={index}
                  >
+                <Flex direction='row' flexWrap={true} textAlign='center' justifyContent='space-evenly'>
                 <HStack key={index}>
                 <Avatar bg="indigo.500" alignSelf="left" size="md" source={{
                 uri: 'https://placeimg.com/80/80/people'
@@ -135,9 +136,12 @@ function FriendDisplay({ navigation }) {
                 </AlertDialog.Content>
                 </AlertDialog>
                 </HStack>
+                </Flex>
                 </Button>
+                
                  )
                  })}
+            </Flex>
             </VStack>
         </Center>
     )
