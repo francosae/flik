@@ -4,7 +4,7 @@ import fire from "../../Firebase/Firebase";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Box, VStack, Text, TextArea, Button } from "native-base";
+import { Box, VStack, Text, Input, Button } from "native-base";
 
 export default function RegisterScreen({
   navigation,
@@ -58,7 +58,7 @@ export default function RegisterScreen({
           Create a new account:
         </Text>
         <VStack width={"100%"} space={3} alignItems={"center"}>
-          <TextArea
+          <Input
             width={"80%"}
             h={10}
             placeholder="Email"
@@ -66,7 +66,7 @@ export default function RegisterScreen({
             onChange={(e) => setEmail(e.currentTarget.value)}
             onChangeText={(text) => setEmail(text)}
           />
-          <TextArea
+          <Input
             width={"80%"}
             h={10}
             placeholder="Username"
@@ -74,10 +74,11 @@ export default function RegisterScreen({
             onChange={(e) => setUsername(e.currentTarget.value)}
             onChangeText={(text) => setUsername(text)}
           />
-          <TextArea
+          <Input
             width={"80%"}
             h={10}
             placeholder="Password"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.currentTarget.value)}
             onChangeText={(text) => setPassword(text)}
