@@ -1,7 +1,12 @@
 
-<p align="center" style="font-size:30px;">
+![image1](https://user-images.githubusercontent.com/69439997/189598992-0488ec29-6ab6-4c4d-81c7-e9c0219edaad.jpeg)
+![image3](https://user-images.githubusercontent.com/69439997/189599008-d1eb3720-d5a7-407d-8922-7283f9723e2f.jpeg)
+![image4](https://user-images.githubusercontent.com/69439997/189599011-9c42c88a-3976-4aeb-9773-7458e690db7d.jpeg)
+![image5](https://user-images.githubusercontent.com/69439997/189599013-eb6134fa-7968-4dbc-830b-7b7831d2bb1e.jpeg)
+![image1](https://user-images.githubusercontent.com/69439997/189599014-783eaac8-7f74-43da-b63d-1a50aa61565e.jpeg)
+![image2](https://user-images.githubusercontent.com/69439997/189599015-b0181385-99e4-4c35-89b5-a349c61a42d9.jpeg)
+
 # Flik
-</p>
 Flik is an engaging social photo hunting app that generates new prompts every day.
 
 ## Inspiration
@@ -15,6 +20,17 @@ Every 24 hours, Flik generates a new prompt for users to respond to. They use th
 * NativeBase
 * Expo
 * Firebase
+
+## Usage
+Clone the repository and install dependencies 
+```
+npm install
+```
+Next, run Expo
+```
+expo start
+```
+That's it! You can scan the QR Code in the Expo Go App.
 
 ## Challenges we ran into
 Since it was our first time developing a mobile app, we ran into some problems getting the app setup in the beginning. We couldn't figure out how to display the app on multiple devices and since we all didn't have Macs, it was harder to view our iPhone screens in real time. We also had a bit of difficulty setting up the Firebase database since was also had no prior experience with it.
