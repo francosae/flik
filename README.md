@@ -1,5 +1,7 @@
 
-# Flik.
+<p align="center">
+# Flik
+</p>
 Flik is an engaging social photo hunting app that generates new prompts every day.
 
 ## Inspiration
