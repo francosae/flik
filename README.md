@@ -1,3 +1,5 @@
+
+# Flik - an engaging social photo hunting app that generates new prompts every day.
 <p float="left">
   <img src="https://user-images.githubusercontent.com/69439997/189598992-0488ec29-6ab6-4c4d-81c7-e9c0219edaad.jpeg" width="33%" />
   <img src="https://user-images.githubusercontent.com/69439997/189599008-d1eb3720-d5a7-407d-8922-7283f9723e2f.jpeg" width="33%" /> 
@@ -9,10 +11,6 @@
   <img src="https://user-images.githubusercontent.com/69439997/189599014-783eaac8-7f74-43da-b63d-1a50aa61565e.jpeg" width="33%" /> 
   <img src="https://user-images.githubusercontent.com/189599015-b0181385-99e4-4c35-89b5-a349c61a42d9.jpeg" width="33%" />
 </p>
-
-
-# Flik
-Flik is an engaging social photo hunting app that generates new prompts every day.
 
 ## Inspiration
 We wanted to create a social media app similar to BeReal that gave users a fun and engaging way to connect using daily generating photo prompts.
