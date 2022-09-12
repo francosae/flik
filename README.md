@@ -9,7 +9,7 @@
   <img src="https://user-images.githubusercontent.com/69439997/189599015-b0181385-99e4-4c35-89b5-a349c61a42d9.jpeg" width="16%" />
 </p>
 
-Built by: <b>t</b>
+Built by: <b>David Barcenas</b> <b>Nana Kofi Okae</b> <b>Enrique Rico</b> <b>Paul Franco</b>
 
 ## Inspiration
 We wanted to create a social media app similar to BeReal that gave users a fun and engaging way to connect using daily generating photo prompts.
