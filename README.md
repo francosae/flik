@@ -1,5 +1,5 @@
 
-<p align="center">
+<p align="center" style="font-size:30px">
 # Flik
 </p>
 Flik is an engaging social photo hunting app that generates new prompts every day.
