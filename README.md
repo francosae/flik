@@ -10,7 +10,6 @@
 </p>
 --
 Built by: 
---
 ## Inspiration
 We wanted to create a social media app similar to BeReal that gave users a fun and engaging way to connect using daily generating photo prompts.
 
